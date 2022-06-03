@@ -22,8 +22,15 @@ int main(void)
     }
     else   //esle, you missed
     {
-        printf("You missed!\n");
-        printf("But don't be sad, try again!");
+        if(attempt < sec_num)   //returns if the attempt was less than or greater than the secret number
+        {
+            printf("You're attempt was less than the secret number!\n");
+        }
+        else
+        {
+            printf("You're attempt was greater that the secret number!\n");
+        }
+
     }
 
 
