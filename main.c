@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "main.h"
 
 int main(void)
@@ -8,7 +9,9 @@ int main(void)
     header();   //print game header
 
     float score = 1000;
-    int sec_num = 42;   //secret number to hit 
+    
+    srand(time(NULL));
+    int sec_num = rand() % 100;   //random secret number to hit 
 
     int guess;        //variable that holds the guess
     int num_of_attempts = 1;
