@@ -5,9 +5,9 @@
 int main(void)
 {
     system("clear"); //start with a clear terminal
-
     header();   //print game header
 
+    float score = 1000;
     int sec_num = 42;   //secret number to hit 
 
     int guess;        //variable that holds the guess
@@ -44,9 +44,13 @@ int main(void)
             printf("You're guess was greater that the secret number!\n\n");
         }
         num_of_attempts++;
+
+        float lost_score = abs(guess - sec_num) / 2.0;
+        score -= lost_score;
     }
     printf("\nEnd Game!\n");
-    printf("You won in %d tries", num_of_attempts);
+    printf("You won in %d tries\n", num_of_attempts);
+    printf("Your score was %.1f points\n", score);
 }
 
 void header()
