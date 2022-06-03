@@ -7,4 +7,6 @@ int main(void){
     printf("***   Welcome to the Guessing Game !  ***\n");
     printf("*****************************************\n");
 
+    int sec_num = 42;   //secret number to hit 
+
 }
