@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include "main.h"
 
-#define ATTEMPTS 5
-
-
 int main(void)
 {
     system("clear"); //start with a clear terminal
@@ -14,41 +11,43 @@ int main(void)
     int sec_num = 42;   //secret number to hit 
 
     int guess;        //variable that holds the guess
+    int num_of_attempts = 1;
     
-    for(int i=1; i<=ATTEMPTS; i++)  // have 3 ATTEMPTS to guess the secret number 
-    {
+    while(1){
 
-        printf("Attempt %d to %d:\n", i, ATTEMPTS);
+        printf("Attempt %d:\n", num_of_attempts);
+
         printf("What is your guess?\n");
         scanf("%d", &guess);
 
         system("clear");
         header();
 
+        if(guess < 0)
+        {
+            printf("You can't guess negative numbers!\n\n");
+            continue;
+        }
+
         if(guess == sec_num)  //if the guess is equal the secret number, you're right
         {     
             printf("Congratulations! You got it right!\n");
             printf("Play again, you're a great player\n");
-            break;    //break the for loop 
+            break; // stops while
         }
-        else   //esle, you missed
+        else if(guess < sec_num)   //returns if the guess was less than or greater than the secret number
         {
-            if(guess < sec_num)   //returns if the guess was less than or greater than the secret number
-            {
-                printf("You're guess was less than the secret number!\n\n");
-            }
-            else
-            {
-                printf("You're guess was greater that the secret number!\n\n");
-            }
-
+            printf("You're guess was less than the secret number!\n\n");
         }
-
-
+        else
+        {
+            printf("You're guess was greater that the secret number!\n\n");
+        }
+        num_of_attempts++;
     }
-    printf("End Game!\n");
+    printf("\nEnd Game!\n");
+    printf("You won in %d tries", num_of_attempts);
 }
-
 
 void header()
 {
